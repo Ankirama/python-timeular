@@ -7,6 +7,7 @@ You can found the doc here: [public-api](http://developers.timeular.com/public-a
 
 ## TODO
 
+* [ ] Add a description
 * [ ] Add tests
 * [ ] Create module
 * [ ] Add a setup.py
