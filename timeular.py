@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 __author__  = 'ankirama'
@@ -90,7 +90,7 @@ class Activities(API):
     _BASE_URL = '/activities'
 
     def __init__(self, base_url, access_token):
-        super().__init__(base_url + self._BASE_URL, access_token)
+        super(Activities, self).__init__(base_url + self._BASE_URL, access_token)
 
     @check_token
     def get(self):
@@ -133,7 +133,7 @@ class Devices(API):
     _BASE_URL = '/devices'
 
     def __init__(self, base_url, access_token):
-        super().__init__(base_url + self._BASE_URL, access_token)
+        super(Devices, self).__init__(base_url + self._BASE_URL, access_token)
 
     @check_token
     def get(self):
@@ -173,7 +173,7 @@ class Tracking(API):
     _BASE_URL = '/tracking'
 
     def __init__(self, base_url, access_token):
-        super().__init__(base_url + self._BASE_URL, access_token)
+        super(Tracking, self).__init__(base_url + self._BASE_URL, access_token)
 
     @check_token
     def get(self):
@@ -200,7 +200,7 @@ class TimeEntries(API):
     _BASE_URL = '/time-entries'
 
     def __init__(self, base_url, access_token):
-        super().__init__(base_url + self._BASE_URL, access_token)
+        super(TimeEntries, self).__init__(base_url + self._BASE_URL, access_token)
 
     @check_token
     def get_in_range(self, stopped_after, started_before):
