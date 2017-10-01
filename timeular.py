@@ -66,6 +66,12 @@ class Timeular(API):
         self._api_key = api_key
         self._api_secret = api_secret
 
+    def set_api_key(self, api_key):
+        self._api_key = api_key
+
+    def set_api_secret(self, api_secret):
+        self._api_secret = api_secret
+
     def get_access_token(self):
         result = self._make_response('/developer/sign-in', method="post", json={'apiKey': self._api_key, 'apiSecret': self._api_secret}, need_auth=False)
         if not result:
