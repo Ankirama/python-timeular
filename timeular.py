@@ -225,12 +225,3 @@ class TimeEntries(API):
     def delete(self, time_entry_id):
         route = '/%s' % str(time_entry_id)
         return self._make_response(route, method='delete')
-
-timeular = Timeular()
-timeular.get_access_token()
-print(timeular.get_profile())
-print(timeular.get_integrations())
-#print(timeular.activities.get())
-print(timeular.tracking.get())
-print(timeular.tracking.post_stop(39719))
-print(timeular.tracking.get())
