@@ -6,10 +6,6 @@ __version__ = '1.0'
 __email__   = 'ankirama@gmail.com'
 __status__  = 'development'
 
-# Internal imports
-import config
-
-# External libs
 import requests
 from functools import wraps
 from datetime import datetime
@@ -56,18 +52,22 @@ class Timeular(API):
     devices = None
     tracking = None
     time_entries = None
+    _api_key = None
+    _api_secret = None
 
-    def __init__(self, base_url='https://api.timeular.com/api/v1'):
-        super().__init__(base_url)
+    def __init__(self, base_url='https://api.timeular.com/api/v1', api_key, api_secret):
+        super(Timeular, self).__init__(base_url)
         if not self.get_access_token():
             raise ValueError('Check base_url and the route to get your access token')
         self.activities = Activities(base_url, self._access_token)
         self.devices = Devices(base_url, self._access_token)
         self.tracking = Tracking(base_url, self._access_token)
         self.time_entries = TimeEntries(base_url, self._access_token)
+        self._api_key = api_key
+        self._api_secret = api_secret
 
     def get_access_token(self):
-        result = self._make_response('/developer/sign-in', method="post", json={'apiKey': config.API_KEY, 'apiSecret': config.API_SECRET}, need_auth=False)
+        result = self._make_response('/developer/sign-in', method="post", json={'apiKey': self._api_key, 'apiSecret': self._api_secret}, need_auth=False)
         if not result:
             return False
         self._access_token = result['token']
