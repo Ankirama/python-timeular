@@ -55,7 +55,7 @@ class Timeular(API):
     _api_key = None
     _api_secret = None
 
-    def __init__(self, base_url='https://api.timeular.com/api/v1', api_key, api_secret):
+    def __init__(self, base_url='https://api.timeular.com/api/v1', api_key='', api_secret=''):
         super(Timeular, self).__init__(base_url)
         if not self.get_access_token():
             raise ValueError('Check base_url and the route to get your access token')
